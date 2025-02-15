@@ -76,6 +76,8 @@ button:hover {
     height: 100px;
     border-radius: 8px;
     cursor: pointer;
+    opacity: 0.2;
+    animation: buttonIdle 2s infinite;
 }
 
 #rojo {
@@ -92,4 +94,42 @@ button:hover {
 
 #amarillo {
         background-color: #ffff4c; /* Amarillo */
+}
+
+@keyframes prendido_secuencia {
+    0%{opacity: 1; transform: scale(1);}
+    50%{opacity: 1; transform: scale(1.2);}
+    100%{opacity: 1; transform: scale(1);}
+}
+
+@keyframes prendido_click {
+    0%{opacity: 1;}
+    50%{opacity: 0.6;}
+    100%{opacity: 1;}
+}
+
+@keyframes boton_inactico {
+    0%,100%{transform: scale(1);}
+    50%{transform: scale(1.05);}
+}
+
+@keyframes perdio {
+    0%{transform: translateX(0);}
+    20%{transform: translateX(-20px);}
+    40%{transform: translateX(20px);}
+    60%{transform: translateX(-15px);}
+    80%{transform: translateX(15px);}
+    100%{transform: translateX(0);}
+}
+
+.activo_secuencia{
+    animation: prendido_secuencia 0.6s;
+}
+
+.activo_click{
+    animation: prendido_click 0.3s;
+}
+
+body.error{
+    animation: perdio 0.5s;
 }
