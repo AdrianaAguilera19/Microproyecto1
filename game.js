@@ -21,8 +21,11 @@
 
 const colorButtons = document.querySelectorAll('.botones-juego .boton');
 const startButton = document.getElementById('boton-iniciar');
-const resetButton = document.getElementById('boton-reiniciar');
 const numeroRondas = document.getElementById('numero-rondas');
+const rojo = document.getElementById('sonido-rojo');
+const azul = document.getElementById('sonido-azul');
+const verde = document.getElementById('sonido-verde');
+const amarillo = document.getElementById('sonido-amarillo');
 
 let secuencia = [];
 let secuenciaJugador = [];
@@ -49,6 +52,8 @@ function prenderBotonClick(color) {
         button.classList.remove('activo_click');
     }, 300);
 }
+
+
 
 function secuenciaJuego() {
     let i = 0;
@@ -87,7 +92,20 @@ function inicioJugador(color) {
     if (!turnoJugador) return;
     secuenciaJugador.push(color);
     prenderBotonClick(color);
-
+    switch (color) {
+        case 'rojo':
+            rojo.play();
+            break;
+        case 'azul':
+            azul.play();
+            break;
+        case 'verde':
+            verde.play();
+            break;
+        case 'amarillo':
+            amarillo.play();
+            break;
+    }
     const actual = secuenciaJugador.length - 1;
 
     if (secuenciaJugador[actual] !== secuencia[actual]) { // Corrige el acceso al array
@@ -141,12 +159,6 @@ startButton.addEventListener('click', () => {
     reseteo();
     siguienteNivel();
 });
-
-resetButton.addEventListener('click', () => {
-    reseteo();
-    actualizacion_puntuacion();
-});
-
 
 
 
