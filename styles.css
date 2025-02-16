@@ -3,10 +3,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background-color: #ffe6e6; /* Color de fondo rosa claro */
-}
+    }
+
 
 .container {
     text-align: center;
@@ -15,6 +16,8 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 2px solid #ff66b2; /* Borde rosa */
+    width: 90% ;
+    max-width: 600px;
 }
 
 h1 {
@@ -132,4 +135,33 @@ button:hover {
 
 body.error{
     animation: perdio 0.5s;
+}
+
+@media (max-width: 767px) {
+    .container {
+        padding: 10px;
+    }
+
+    .botones-juego {
+        grid-template-columns: repeat(2, 80px); /* Botones más pequeños */
+        grid-template-rows: repeat(2, 80px);
+        gap: 5px;
+    }
+
+    .boton {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        padding: 15px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 20px;
+    }
 }
