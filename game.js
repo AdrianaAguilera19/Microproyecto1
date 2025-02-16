@@ -21,6 +21,7 @@
 
 const colorButtons = document.querySelectorAll('.botones-juego .boton');
 const startButton = document.getElementById('boton-iniciar');
+const resetButton = document.getElementById('boton-reiniciar');
 const numeroRondas = document.getElementById('numero-rondas');
 
 let secuencia = [];
@@ -140,6 +141,12 @@ startButton.addEventListener('click', () => {
     reseteo();
     siguienteNivel();
 });
+
+resetButton.addEventListener('click', () => {
+    reseteo();
+    actualizacion_puntuacion();
+});
+
 
 
 
